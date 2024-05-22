@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="PassProtectorPro is a password management tool designed to evaluate password complexity and variability. It generates strong passwords and provides insightful data visualization through a dashboard featuring charts." />
+    <title>PassProtectorPro</title>
+
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='assets/icon-bg.png') }}"
+      type="image/x-icon" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/particles.css') }}" />
+
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <a href="./">
+        <img
+          width="280px"
+          alt="PassProtectorPro"
+          src="{{ url_for('static', filename='assets/logo.png') }}" />
+      </a>
+    </div>
+
+    <div class="container">
+      <div id="particles-js"></div>
+
+      <div class="cards-wrapper">
+        <!-- Option 1: Check Complexity -->
+        <div class="option-card" id="checker-card" onclick="toggleOption('checker')">
+          <div class="card-icon">
+            <img
+              width="180px"
+              alt="Check Complexity Icon"
+              src="{{ url_for('static', filename='assets/complex.png') }}" />
+          </div>
+
+          <div class="card-info">
+            <h2>Check Password Complexity</h2>
+            <p>Check the complexity of your password.</p>
+          </div>
+        </div>
+
+        <!-- Option 2: Generate Random Secure Password -->
+        <div class="option-card" id="generator-card" onclick="toggleOption('generator')">
+          <div class="card-icon generator">
+            <img
+              width="150px"
+              alt="Generate Password Icon"
+              src="{{ url_for('static', filename='assets/generate.png') }}" />
+          </div>
+
+          <div class="card-info">
+            <h2>Generate Random Secure Password</h2>
+            <p>Generate a Random secure password with our tool.</p>
+          </div>
+        </div>
+
+        <!-- Option 3: Generate Requirements Based Password -->
+        <div
+          class="option-card"
+          id="requirements-generator-card"
+          onclick="toggleOption('requirements-generator')">
+          <div class="card-icon generator">
+            <img
+              width="150px"
+              alt="Generate Password Icon"
+              src="{{ url_for('static', filename='assets/requirements.png') }}" />
+          </div>
+
+          <div class="card-info">
+            <h2>Generate Requirements Based Password</h2>
+            <p>Generate a Requirements Based secure password with our tool.</p>
+          </div>
+        </div>
+
+        <!-- Option 4: Upload a CSV file for processing -->
+        <div class="option-card" id="upload-card" onclick="toggleOption('upload')">
+          <div class="card-icon csv">
+            <img
+              width="130px"
+              alt="Upload CSV"
+              src="{{ url_for('static', filename='assets/csv.png') }}" />
+          </div>
+
+          <div class="card-info csv">
+            <h2>Upload CSV File</h2>
+            <p>Upload a CSV file for processing.</p>
+          </div>
+        </div>
+
+        <!-- Option 1 Content: Check Complexity -->
+        <div class="option-content" id="checker-content">
+          <div class="option-content-info">
+            <div class="option-content-container">
+              <form id="predictionForm">
+                <label for="password">Enter Your Password</label><br />
+                <input
+                  required
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="Password" />
+                <button id="predictButton" type="button">Predict Complexity</button>
+              </form>
+            </div>
+
+            <!-- Dynamic content based on form submission -->
+            <div id="predictionResults" style="display: none">
+              <div class="info-text">
+                <span class="label">Password:</span> <span id="passwordResult"></span>
+              </div>
+              <div class="info-text">
+                <span class="label">Predicted complexity:</span>
+                <span id="predictedComplexityResult"></span>
+              </div>
+              <!-- <div class="info-text"><span class="label">Crack time:</span></div> -->
+              <div id="crackTimeResult" class="crack-time-result">
+                <!-- Crack time results will be dynamically inserted here -->
+              </div>
+
+              <div class="info-text last">
+                <a id="passwordDetailsLink" href="#">View Password Details</a>
+                <img
+                  width="15px"
+                  src="{{ url_for('static', filename='assets/chevron-right.png') }}"
+                  alt="Go Arrow" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Option 2 Content: Generate Secure Password -->
+        <div class="option-content" id="generator-content">
+          <!-- Content for Secure Password Generator -->
+          <!-- You can add content specific to the generator here -->
+          <div class="generate-title">Generated Passowrds</div>
+
+          <div id="passwords-container"></div>
+
+          <div class="regenerate-button" onclick="generateAndDisplayPasswords()">
+            Regenerate
+            <img src="{{ url_for('static', filename='assets/refresh.png') }}" alt="Regenerate" />
+          </div>
+        </div>
+
+        <!-- Option 3 Content: Generate Requirements Based Password -->
+        <div class="requirements-option-content" id="requirements-generator-content">
+          <!-- Content for Requirements Based Password Generator -->
+          <!-- You can add content specific to the generator here -->
+
+          <div class="generate-title">Generate Passwords</div>
+
+          <div class="input-item">
+            <div class="generate-input-title">Length</div>
+
+            <div class="generator-input">
+              <input required id="length" name="length" type="number" min="1" value="20" />
+              <div class="helper-text" id="length-helper"></div>
+              <!-- Helper text for length input -->
+            </div>
+          </div>
+
+          <div class="input-items-wrapper">
+            <div class="input-item">
+              <div class="generate-input-title">Numbers</div>
+
+              <div class="generate-input">
+                <input required id="numbers" name="numbers" type="number" min="0" />
+                <div class="helper-text" id="numbers-helper"></div>
+                <!-- Helper text for Numbers input -->
+              </div>
+            </div>
+
+            <div class="input-item">
+              <div class="generate-input-title">Uppercase</div>
+
+              <div class="generator-input">
+                <input required id="uppercase" name="uppercase" type="number" min="0" />
+                <div class="helper-text" id="uppercase-helper"></div>
+                <!-- Helper text for uppercase input -->
+              </div>
+            </div>
+
+            <div class="input-item">
+              <div class="generate-input-title">Lowercase</div>
+
+              <div class="generator-input">
+                <input required id="lowercase" name="lowercase" type="number" min="0" />
+                <div class="helper-text" id="lowercase-helper"></div>
+                <!-- Helper text for lowercase input -->
+              </div>
+            </div>
+
+            <div class="input-item">
+              <div class="generate-input-title">Special Characters</div>
+
+              <div class="generator-input">
+                <input required id="special" name="special" type="number" min="0" />
+                <div class="helper-text" id="special-helper"></div>
+                <!-- Helper text for special characters input -->
+              </div>
+            </div>
+          </div>
+
+          <div id="requirements-passwords-container" class="requirements-passwords-wrapper"></div>
+
+          <button
+            disabled
+            class="requirements-regenerate-button"
+            onclick="generateAndDisplayRequirementsPasswords()">
+            Regenerate
+            <img src="{{ url_for('static', filename='assets/refresh.png') }}" alt="Regenerate" />
+          </button>
+        </div>
+
+        <!-- Option 4 Content: Upload a CSV file for processing -->
+        <div class="option-content upload" id="upload-content">
+          <!-- Content for Upload a CSV file for processing -->
+          <!-- You can add content specific to the Upload a CSV here -->
+
+          <div class="generate-title">Upload a CSV file</div>
+
+          <div class="input-item upload">
+            <div class="generate-input">
+              <label class="file">
+                <input
+                  required
+                  type="file"
+                  id="csvFile"
+                  accept=".csv"
+                  name="csvFile"
+                  onchange="showFileName(this)" />
+                <span class="file-custom" data-file-name="Choose file..."></span>
+              </label>
+
+              <button
+                disabled
+                id="upload-button"
+                class="upload-button"
+                onclick="uploadFileHandler()">
+                <img alt="Upload" src="{{ url_for('static', filename='assets/upload.png') }}" />
+                Upload
+              </button>
+            </div>
+          </div>
+
+          <div id="file-info-container"></div>
+        </div>
+      </div>
+
+      <!-- Back Button -->
+      <div class="back-button" onclick="showOptions()">
+        <img src="https://static.thenounproject.com/png/1875804-200.png" alt="Back Arrow" />
+        Back
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img
+            width="400px"
+            alt="PassProtectorPro"
+            src="{{ url_for('static', filename='assets/logo.png') }}" />
+        </div>
+
+        <div class="footer-feedback">
+          <h3>We value your feedback. Please send your feedback</h3>
+
+          <form action="mailto:passprotectorpro@gmail.com" method="post" enctype="text/plain">
+            <div class="footer-row">
+              <div class="footer-item">
+                <label for="user-email">Your Email:</label>
+                <br />
+                <input type="email" id="user-email" name="user-email" required />
+              </div>
+
+              <br />
+              <br />
+
+              <div class="footer-item">
+                <label for="user-message">Message:</label>
+                <br />
+                <textarea id="user-message" name="user-message" rows="4" required></textarea>
+              </div>
+            </div>
+
+            <br />
+
+            <div class="footer-action">
+              <button type="submit">Send</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="footer-info">
+          <p>&copy; <span id="current-year"></span> PassProtectorPro. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/generatePasswords.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/particles.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/fileUpload.js') }}"></script>
+    <script>
+      // Set current year in footer
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
