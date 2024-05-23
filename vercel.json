@@ -10,5 +10,6 @@
       "dest": "app.py",
       "src": "/(.*)"
     }
-  ]
+  ],
+  "version": 1
 }
