@@ -41,3 +41,11 @@ Before running the application, ensure you have the following installed:
 5. Enter a password in the input field and click on the "Predict Complexity" button to analyze its complexity.
 6. Upload a CSV file containing passwords to analyze multiple passwords at once.
 7. View detailed analysis and suggestions for password improvement on the dashboard.
+
+## Authors
+
+- **Qasem Abu Al-Haija**
+- **Rand Abu-Ghazaleh**
+- **Ayat Hafez**
+- **Sara Mansour**
+- **Yara Al-Jammal**
