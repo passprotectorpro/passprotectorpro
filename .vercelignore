@@ -1,6 +1,0 @@
-.git/
-__pycache__/
-.venv/
-node_modules/
-*.log
-.DS_Store
