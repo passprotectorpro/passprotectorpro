@@ -29,7 +29,7 @@
       </a>
     </div>
 
-    <div class="container">
+    <main class="container">
       <div id="particles-js"></div>
 
       <div class="cards-wrapper">
@@ -261,11 +261,9 @@
         <img src="https://static.thenounproject.com/png/1875804-200.png" alt="Back Arrow" />
         Back
       </div>
-    </div>
+    </main>
 
-    <!-- Footer -->
-    <!-- Footer -->
-    <div class="footer">
+    <footer class="footer">
       <div class="footer-content">
         <div class="footer-logo">
           <img
@@ -292,14 +290,13 @@
                 <label for="user-message">Message:</label>
                 <br />
                 <textarea id="user-message" name="user-message" rows="4" required></textarea>
+                <div class="footer-action">
+                  <button type="submit">Send</button>
+                </div>
               </div>
             </div>
 
             <br />
-
-            <div class="footer-action">
-              <button type="submit">Send</button>
-            </div>
           </form>
         </div>
 
@@ -307,7 +304,7 @@
           <p>&copy; <span id="current-year"></span> PassProtectorPro. All rights reserved.</p>
         </div>
       </div>
-    </div>
+    </footer>
 
     <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/generatePasswords.js') }}"></script>

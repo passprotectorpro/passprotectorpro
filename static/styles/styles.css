@@ -8,20 +8,23 @@ body {
 
 .header {
   top: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 99;
   color: #fff;
   padding: 20px;
   position: fixed;
+  overflow: hidden;
   background-color: #202029;
 }
 
 .container {
   display: flex;
-  height: 80vh;
   flex-wrap: wrap;
+  position: relative;
   align-items: center;
   justify-content: center;
+  padding-bottom: 10rem;
+  padding-top: 10rem;
 }
 
 .particles-js-canvas-el {
@@ -567,6 +570,8 @@ body {
   align-items: center;
   justify-content: center;
   margin-left: -1rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .item-title img {
@@ -707,14 +712,11 @@ body {
 }
 
 .footer {
-  position: relative;
-  z-index: 9999;
   color: white;
+  overflow: hidden;
   padding: 2rem 10rem;
   padding-bottom: 2rem;
   background-color: #202029;
-  border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem;
 }
 
 .footer-feedback h3 {
@@ -724,7 +726,7 @@ body {
 .footer-feedback {
   margin-top: 3rem;
   margin-bottom: 4rem;
-  width: 50%;
+  width: 100%;
 }
 
 .footer-feedback input {
@@ -795,4 +797,121 @@ body {
 .footer-action {
   display: flex;
   justify-content: flex-end;
+}
+
+@media screen and (max-width: 1300px) {
+  .dashboard-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  .characteristic {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .characteristic-item {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .footer {
+    padding: 2rem 2rem;
+  }
+
+  .container {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .option-content {
+    width: 70%;
+  }
+
+  .footer-row {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .footer-item {
+    width: 90%;
+  }
+
+  .footer-feedback {
+    width: 100%;
+  }
+
+  .footer-action {
+    padding-top: 2rem;
+    width: 110%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer-feedback input,
+  .footer-feedback textarea {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .characteristic-item {
+    width: 100%;
+    margin-right: -0.5rem;
+  }
+
+  .item-title h3 {
+    font-size: 18px;
+  }
+
+  .item-title img {
+    width: 20px;
+  }
+
+  .progress-bar {
+    height: 10px;
+  }
+
+  .progress-text {
+    font-size: 16px;
+  }
+
+  .title-container h1 {
+    font-size: 22px;
+  }
+
+  .cracking-time h3 {
+    font-size: 22px;
+    text-align: center;
+  }
+  .cracking-time p {
+    font-size: 18px;
+  }
+  .suggestions h3 {
+    font-size: 22px;
+    text-align: center;
+  }
+  .suggestion-list li {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .option-content {
+    width: 100%;
+  }
+
+  .footer-logo img {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 345px) {
+  .footer-logo img {
+    width: 200px;
+  }
 }
