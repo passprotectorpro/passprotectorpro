@@ -905,6 +905,56 @@ body {
     width: 100%;
   }
 
+  .requirements-option-content {
+    width: 100%;
+  }
+
+  .generate-title {
+    font-size: 22px;
+  }
+
+  .option-content.upload {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .input-items-wrapper {
+    width: 100%;
+  }
+
+  .input-item {
+    width: 100%;
+  }
+
+  .generate-input {
+    width: 100%;
+  }
+
+  .generator-input input {
+    width: 80% !important;
+  }
+
+  #numbers {
+    width: 80% !important;
+  }
+
+  #length {
+    width: 75% !important;
+  }
+
+  .requirements-regenerate-button {
+    width: 85% !important;
+  }
+
+  .input-item.upload {
+    margin-right: 0;
+  }
+
+  .generator-input {
+    width: 100%;
+  }
+
   .footer-logo img {
     width: 300px;
   }
