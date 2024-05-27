@@ -727,6 +727,18 @@ body {
   margin-top: 3rem;
   margin-bottom: 4rem;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.authors-wrapper {
+  padding-right: 1rem;
+}
+
+.authors-wrapper li {
+  font-size: 18px;
+  margin-bottom: 0.5rem;
+  margin-left: -1rem;
 }
 
 .footer-feedback input {
@@ -964,4 +976,34 @@ body {
   .footer-logo img {
     width: 200px;
   }
+}
+
+.mission-master {
+  width: 100%;
+  display: flex;
+  text-align: right;
+  align-items: center;
+}
+
+.mission-master div {
+  margin-left: 1rem;
+  margin-top: -0.3rem;
+}
+
+.mission-master a {
+  width: 100%;
+  display: flex;
+  font-size: 24px;
+  color: #ffdf64;
+  text-align: right;
+  align-items: center;
+  text-decoration: none;
+  justify-content: flex-end;
+  transition: all 0.18s ease-in-out;
+}
+
+.mission-master a:hover {
+  color: #dcbf49;
+  font-size: 24.5px;
+  transition: all 0.18s ease-in-out;
 }
