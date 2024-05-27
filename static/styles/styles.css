@@ -698,205 +698,6 @@ body {
   max-width: 18rem;
 }
 
-.download-button {
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  margin-top: 2rem;
-  margin-right: 1rem;
-  padding: 10px 20px;
-  border-radius: 5px;
-  background-color: #dc3742;
-}
-
-.authors-wrapper {
-  padding-right: 1rem;
-}
-
-.authors-wrapper li {
-  font-size: 18px;
-  margin-bottom: 0.5rem;
-  margin-left: -1rem;
-}
-
-@media screen and (max-width: 1300px) {
-  .dashboard-container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-
-@media screen and (max-width: 1180px) {
-  .characteristic {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .characteristic-item {
-    width: 40%;
-  }
-}
-
-@media screen and (max-width: 1140px) {
-  .footer {
-    padding: 2rem 2rem;
-  }
-
-  .container {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-  }
-
-  .option-content {
-    width: 70%;
-  }
-
-  .footer-row {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .footer-item {
-    width: 90%;
-  }
-
-  .footer-feedback {
-    width: 100%;
-  }
-
-  .footer-action {
-    padding-top: 2rem;
-    width: 110%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .footer-feedback input,
-  .footer-feedback textarea {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 870px) {
-  .characteristic-item {
-    width: 100%;
-    margin-right: -0.5rem;
-  }
-
-  .footer-feedback {
-    margin-top: 3rem;
-    margin-bottom: 4rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .item-title h3 {
-    font-size: 18px;
-  }
-
-  .item-title img {
-    width: 20px;
-  }
-
-  .progress-bar {
-    height: 10px;
-  }
-
-  .progress-text {
-    font-size: 16px;
-  }
-
-  .title-container h1 {
-    font-size: 22px;
-  }
-
-  .cracking-time h3 {
-    font-size: 22px;
-    text-align: center;
-  }
-  .cracking-time p {
-    font-size: 18px;
-  }
-  .suggestions h3 {
-    font-size: 22px;
-    text-align: center;
-  }
-  .suggestion-list li {
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 470px) {
-  .option-content {
-    width: 100%;
-  }
-
-  .requirements-option-content {
-    width: 100%;
-  }
-
-  .generate-title {
-    font-size: 22px;
-  }
-
-  .option-content.upload {
-    width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .input-items-wrapper {
-    width: 100%;
-  }
-
-  .input-item {
-    width: 100%;
-  }
-
-  .generate-input {
-    width: 100%;
-  }
-
-  .generator-input input {
-    width: 80% !important;
-  }
-
-  #numbers {
-    width: 80% !important;
-  }
-
-  #length {
-    width: 75% !important;
-  }
-
-  .requirements-regenerate-button {
-    width: 85% !important;
-  }
-
-  .input-item.upload {
-    margin-right: 0;
-  }
-
-  .generator-input {
-    width: 100%;
-  }
-
-  .footer-logo img {
-    width: 300px;
-  }
-}
-
-@media screen and (max-width: 345px) {
-  .footer-logo img {
-    width: 200px;
-  }
-}
-
 .mission-master {
   width: 100%;
   display: flex;
@@ -1015,4 +816,217 @@ body {
 .footer-action {
   display: flex;
   justify-content: flex-end;
+}
+
+.download-button {
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-right: 1rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #dc3742;
+}
+
+.authors-wrapper {
+  padding-right: 1rem;
+}
+
+.authors-wrapper li {
+  font-size: 18px;
+  margin-bottom: 0.5rem;
+  margin-left: -1rem;
+}
+
+@media screen and (max-width: 1300px) {
+  .dashboard-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  .characteristic {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .characteristic-item {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .mission-master {
+    text-align: center;
+    justify-content: center;
+  }
+  .mission-master a {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .footer {
+    padding: 2rem 2rem;
+  }
+
+  .container {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .option-content {
+    width: 70%;
+  }
+
+  .footer-row {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .footer-item {
+    width: 90%;
+  }
+
+  .footer-feedback {
+    width: 100%;
+  }
+
+  .footer-action {
+    padding-top: 2rem;
+    width: 110%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer-feedback input,
+  .footer-feedback textarea {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .characteristic-item {
+    width: 100%;
+    margin-right: -0.5rem;
+  }
+
+  .footer-feedback {
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .item-title h3 {
+    font-size: 18px;
+  }
+
+  .item-title img {
+    width: 20px;
+  }
+
+  .progress-bar {
+    height: 10px;
+  }
+
+  .progress-text {
+    font-size: 16px;
+  }
+
+  .title-container h1 {
+    font-size: 22px;
+  }
+
+  .cracking-time h3 {
+    font-size: 22px;
+    text-align: center;
+  }
+  .cracking-time p {
+    font-size: 18px;
+  }
+  .suggestions h3 {
+    font-size: 22px;
+    text-align: center;
+  }
+  .suggestion-list li {
+    font-size: 14px;
+  }
+
+  .footer {
+    padding: 2rem 1rem;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .option-content {
+    width: 100%;
+  }
+
+  .requirements-option-content {
+    width: 100%;
+  }
+
+  .generate-title {
+    font-size: 22px;
+  }
+
+  .option-content.upload {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .input-items-wrapper {
+    width: 100%;
+  }
+
+  .input-item {
+    width: 100%;
+  }
+
+  .generate-input {
+    width: 100%;
+  }
+
+  .generator-input input {
+    width: 80% !important;
+  }
+
+  #numbers {
+    width: 80% !important;
+  }
+
+  #length {
+    width: 75% !important;
+  }
+
+  .requirements-regenerate-button {
+    width: 85% !important;
+  }
+
+  .input-item.upload {
+    margin-right: 0;
+  }
+
+  .generator-input {
+    width: 100%;
+  }
+
+  .footer-logo img {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 345px) {
+  .footer-logo img {
+    width: 200px;
+  }
 }
